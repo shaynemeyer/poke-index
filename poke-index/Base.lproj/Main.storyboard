@@ -114,7 +114,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Sft-cO-Uan"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="6RM-Vp-dwR">
+                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" searchBarStyle="minimal" placeholder="Search for Pokemon" translatesAutoresizingMaskIntoConstraints="NO" id="6RM-Vp-dwR">
                                 <rect key="frame" x="0.0" y="55" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -149,6 +149,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="xpe-BR-RbQ" id="Wn9-Di-o7N"/>
+                        <outlet property="searchBar" destination="6RM-Vp-dwR" id="gwr-3Y-f68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
