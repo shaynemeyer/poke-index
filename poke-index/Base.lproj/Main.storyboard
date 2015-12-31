@@ -157,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="560" y="443"/>
         </scene>
-        <!--View Controller-->
+        <!--Pokemon DetailVC-->
         <scene sceneID="y8N-DO-eV5">
             <objects>
-                <viewController id="nvm-hf-B1C" sceneMemberID="viewController">
+                <viewController id="nvm-hf-B1C" customClass="PokemonDetailVC" customModule="poke_index" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Eo3-3y-7CA"/>
                         <viewControllerLayoutGuide type="bottom" id="onN-3O-sx7"/>
@@ -168,7 +168,7 @@
                     <view key="view" contentMode="scaleToFill" id="09M-M9-qf0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66R-TL-9Pa" userLabel="First Responder" sceneMemberID="firstResponder"/>
