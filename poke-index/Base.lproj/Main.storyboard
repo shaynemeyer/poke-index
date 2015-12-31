@@ -106,7 +106,6 @@
                                         <connections>
                                             <outlet property="nameLbl" destination="0MA-YH-zQ5" id="70i-Ke-jgG"/>
                                             <outlet property="thumbImg" destination="XxB-Vw-c4d" id="wNP-oe-600"/>
-                                            <segue destination="nvm-hf-B1C" kind="show" identifier="PokemonDetailVC" id="EZn-WI-Dml"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -151,6 +150,7 @@
                     <connections>
                         <outlet property="collection" destination="xpe-BR-RbQ" id="Wn9-Di-o7N"/>
                         <outlet property="searchBar" destination="6RM-Vp-dwR" id="gwr-3Y-f68"/>
+                        <segue destination="nvm-hf-B1C" kind="show" identifier="PokemonDetailVC" id="vCZ-Y0-DXG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -168,8 +168,27 @@
                     <view key="view" contentMode="scaleToFill" id="09M-M9-qf0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3P-Rg-jvS">
+                                <rect key="frame" x="201" y="289" width="198" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="azr-dS-5e5"/>
+                                    <constraint firstAttribute="height" constant="21" id="io6-eI-28N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="G3P-Rg-jvS" firstAttribute="centerX" secondItem="09M-M9-qf0" secondAttribute="centerX" id="cfc-Ym-r4C"/>
+                            <constraint firstItem="G3P-Rg-jvS" firstAttribute="centerY" secondItem="09M-M9-qf0" secondAttribute="centerY" id="tvg-ct-I48"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameLbl" destination="G3P-Rg-jvS" id="n7o-mc-Dip"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66R-TL-9Pa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
