@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class PokemonDetailVC: UIViewController {
 
     @IBOutlet weak var nameLbl: UILabel!
@@ -29,10 +30,16 @@ class PokemonDetailVC: UIViewController {
         super.viewDidLoad()
 
         nameLbl.text = pokemon.name
+        mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        
+        pokemon.downloadPokemonDetails { () -> () in
+            // this will be called after download is done
+        }
     }
 
 
     @IBAction func backBtnPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+        
     }
 }
