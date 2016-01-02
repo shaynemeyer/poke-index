@@ -110,7 +110,7 @@ class Pokemon {
     
     func downloadPokemonDetails(completed: DownloadComplete) {
         let url = NSURL(string: _pokemonURL)!
-        Alamofire.request(.GET, url).responseJSON { (response) -> Void in
+        Alamofire.request(.GET, url).responseJSON { response in
 
             if let dict = response.result.value as? Dictionary<String, AnyObject> {
                 
@@ -161,7 +161,7 @@ class Pokemon {
                     if let url = descArr[0]["resource_uri"] {
                         let nsurl = NSURL(string: "\(URL_BASE)\(url)")!
                         
-                        Alamofire.request(.GET, nsurl).responseJSON { (response) -> Void in
+                        Alamofire.request(.GET, nsurl).responseJSON { response in
                             
                             if let descDict = response.result.value as? Dictionary<String, AnyObject> {
                                 
@@ -179,6 +179,37 @@ class Pokemon {
                     self._description = ""
                 }
                 
+                if let evolutions = dict["evolutions"] as? [Dictionary<String,AnyObject>] where evolutions.count > 0 {
+                    
+                    if let to = evolutions[0]["to"] as? String {
+                        
+                        //Can't support mega pokemon right now but
+                        //api still has mega data
+                        if to.rangeOfString("mega") == nil {
+                            
+                            if let uri = evolutions[0]["resource_uri"] as? String {
+                                
+                                let newStr = uri.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "")
+                                
+                                let num = newStr.stringByReplacingOccurrencesOfString("/", withString: "")
+                                
+                                self._nextEvolutionId = num
+                                self._nextEvolutionTxt = to
+                                
+                                if let lvl = evolutions[0]["level"] as? Int {
+                                    self._nextEvolutionLvl = "\(lvl)"
+                                }
+                                
+                                print(self._nextEvolutionId)
+                                print(self._nextEvolutionTxt)
+                                //print(self._nextEvolutionLvl)
+                                
+                            }
+                        }
+                        
+                    }
+                    
+                }
             }
         }
     }
