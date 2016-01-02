@@ -23,6 +23,11 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var currentEvoImg: UIImageView!
     @IBOutlet weak var nextEvoImg: UIImageView!
     @IBOutlet weak var evoLbl: UILabel!
+    @IBOutlet weak var bioView: UIView!
+    @IBOutlet weak var movesView: UIView!
+    @IBOutlet weak var movesLbl: UILabel!
+
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var pokemon: Pokemon!
     
@@ -61,11 +66,31 @@ class PokemonDetailVC: UIViewController {
             if pokemon.nextEvolutionLvl != "" {
                 str += " - LVL \(pokemon.nextEvolutionLvl)"
             }
+            
+            evoLbl.text = str
         }
         
+        movesLbl.text = pokemon.moves
     }
 
     @IBAction func backBtnPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func segmentedCtlPressed(sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex
+        {
+            case 0:
+                print("Bio")
+                self.bioView.hidden = false
+                self.movesView.hidden = true
+            case 1:
+                print("Moves")
+                self.bioView.hidden = true
+                self.movesView.hidden = false
+            default:
+                break
+        }
+    }
+    
 }
